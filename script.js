@@ -41,7 +41,9 @@ function showResults(userOption) {
     computerScoreSpanElement.innerText = computerScore;
     playerScoreSpanElement.innerText = playerScore;
 
-    if (playerScore === 3 || computerScore === 3) {
+    const winningGame = 3
+
+    if (playerScore === winningGame || computerScore === winningGame) {
         winnerMsgElement.innerText = `${playerScore === 3 ? "Player" : "Computer"
             } has won the game!`;
 
@@ -50,9 +52,17 @@ function showResults(userOption) {
     }
 
 };
-function resetGame() {
 
-};
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreSpanElement.innerText = playerScore; 
+    computerScoreSpanElement.innerText = computerScore; 
+    resetGameBtn.style.display = "none";
+    optionsContainer.style.display = "block";
+    winnerMsgElement.innerText = "";
+    roundResultsMsg.innerText = ""; 
+  }
 
 resetGameBtn.addEventListener("click", resetGame);
 
